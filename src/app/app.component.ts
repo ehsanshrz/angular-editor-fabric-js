@@ -4,12 +4,13 @@ import { FabricjsEditorComponent } from 'projects/angular-editor-fabric-js/src/p
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
   title = 'angular-editor-fabric-js';
 
-  @ViewChild('canvas', { static: false }) canvas: FabricjsEditorComponent;
+  @ViewChild('canvas', { static: false }) canvas!: FabricjsEditorComponent;
 
   public rasterize() {
     this.canvas.rasterize();
@@ -39,23 +40,23 @@ export class AppComponent {
     this.canvas.addText();
   }
 
-  public getImgPolaroid(event) {
+  public getImgPolaroid(event: any) {
     this.canvas.getImgPolaroid(event);
   }
 
-  public addImageOnCanvas(url) {
+  public addImageOnCanvas(url: string | ArrayBuffer) {
     this.canvas.addImageOnCanvas(url);
   }
 
-  public readUrl(event) {
+  public readUrl(event: any) {
     this.canvas.readUrl(event);
   }
 
-  public removeWhite(url) {
+  public removeWhite(url: string | ArrayBuffer) {
     this.canvas.removeWhite(url);
   }
 
-  public addFigure(figure) {
+  public addFigure(figure: string) {
     this.canvas.addFigure(figure);
   }
 
@@ -103,7 +104,7 @@ export class AppComponent {
     this.canvas.setFontFamily();
   }
 
-  public setTextAlign(value) {
+  public setTextAlign(value: string) {
     this.canvas.setTextAlign(value);
   }
 
@@ -115,11 +116,11 @@ export class AppComponent {
     this.canvas.setFontStyle();
   }
 
-  public hasTextDecoration(value) {
+  public hasTextDecoration(value: string) {
     this.canvas.hasTextDecoration(value);
   }
 
-  public setTextDecoration(value) {
+  public setTextDecoration(value: string) {
     this.canvas.setTextDecoration(value);
   }
 

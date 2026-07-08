@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FabricjsEditorModule } from 'projects/angular-editor-fabric-js/src/public-api';
 import { FormsModule } from '@angular/forms';
-import { ColorPickerModule } from 'ngx-color-picker';
+import { ColorPickerDirective } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     BrowserModule,
     FabricjsEditorModule,
     FormsModule,
-    ColorPickerModule
+    ColorPickerDirective
   ],
   providers: [],
   bootstrap: [AppComponent]

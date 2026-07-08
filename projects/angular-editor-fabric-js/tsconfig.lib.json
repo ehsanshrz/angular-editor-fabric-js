@@ -2,18 +2,20 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2015",
+    "target": "ES2022",
     "declaration": true,
     "inlineSources": true,
     "types": [],
     "lib": [
       "dom",
-      "es2018"
-    ]
+      "ES2022"
+    ],
+    "ignoreDeprecations": "6.0"
   },
   "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
     "enableResourceInlining": true
   },
   "exclude": [
