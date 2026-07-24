@@ -53,7 +53,7 @@ export class FabricjsEditorComponent implements AfterViewInit {
       isDrawingMode: true
     });
 
-    this.canvas.on({
+    (this.canvas as any).on({
       'object:moving': (e) => { },
       'object:modified': (e) => { },
       'object:selected': (e) => {

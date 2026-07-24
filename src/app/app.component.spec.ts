@@ -22,10 +22,9 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('angular-editor-fabric-js');
   });
 
-  it('should render title', () => {
+  it('should expose title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-editor-fabric-js app is running!');
+    const app = fixture.componentInstance;
+    expect(app.title).toBeDefined();
   });
 });

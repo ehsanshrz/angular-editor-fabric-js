@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ColorPickerModule } from 'ngx-color-picker';
+import { ColorPickerDirective } from 'ngx-color-picker';
 
 import { FabricjsEditorComponent } from './angular-editor-fabric-js.component';
 
 @NgModule({
   declarations: [FabricjsEditorComponent],
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
-    ColorPickerModule
+    ColorPickerDirective
   ],
   exports: [FabricjsEditorComponent]
 })
