@@ -254,19 +254,10 @@ export class FabricjsEditorComponent implements AfterViewInit {
     }
   }
 
-<<<<<<< HEAD
   extend(obj: any, id: number) {
     obj.toObject = ((toObject: () => any) => {
       return function(this: any) {
         return Object.assign(toObject.call(this), { id });
-=======
-  extend(obj, id) {
-    obj.toObject = ((toObject) => {
-      return function () {
-        return fabric.util.object.extend(toObject.call(this), {
-          id
-        });
->>>>>>> origin/master
       };
     })(obj.toObject);
   }
@@ -500,13 +491,7 @@ export class FabricjsEditorComponent implements AfterViewInit {
     const activeObject: any = this.canvas.getActiveObject();
     const activeGroup: any = this.canvas.getActiveObjects();
 
-<<<<<<< HEAD
-    if (activeObject) {
-      this.canvas.remove(activeObject);
-    } else if (activeGroup) {
-=======
-    if (activeGroup) {
->>>>>>> origin/master
+    if (activeGroup.length > 0) {
       this.canvas.discardActiveObject();
       activeGroup.forEach((object: FabricObject) => {
         this.canvas.remove(object);
@@ -554,14 +539,9 @@ export class FabricjsEditorComponent implements AfterViewInit {
 
   rasterize() {
     const image = new Image();
-<<<<<<< HEAD
     image.src = this.canvas.toDataURL({ format: 'png', multiplier: 1 });
     const w = window.open('');
     w?.document.write(image.outerHTML);
-=======
-    image.src = this.canvas.toDataURL({ format: 'png' });
-    const w = window.open('');
-    w.document.write(image.outerHTML);
     this.downLoadImage();
   }
 
@@ -573,17 +553,12 @@ export class FabricjsEditorComponent implements AfterViewInit {
     downloadLink.target = '_self';
     downloadLink.download = Date.now() + '.png';
     downloadLink.click();
->>>>>>> origin/master
   }
 
   rasterizeSVG() {
     const w = window.open('');
-<<<<<<< HEAD
     w?.document.write(this.canvas.toSVG());
-=======
-    w.document.write(this.canvas.toSVG());
     this.downLoadSVG();
->>>>>>> origin/master
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(this.canvas.toSVG());
   }
 
