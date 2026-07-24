@@ -2,9 +2,10 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { fabric } from 'fabric';
 
 @Component({
-  selector: 'angular-editor-fabric-js',
-  templateUrl: './angular-editor-fabric-js.component.html',
-  styleUrls: ['./angular-editor-fabric-js.component.css'],
+    selector: 'angular-editor-fabric-js',
+    templateUrl: './angular-editor-fabric-js.component.html',
+    styleUrls: ['./angular-editor-fabric-js.component.css'],
+    standalone: false
 })
 export class FabricjsEditorComponent implements AfterViewInit {
   @ViewChild('htmlCanvas') htmlCanvas: ElementRef;
