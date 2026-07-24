@@ -143,4 +143,13 @@ export class AppComponent {
   public drawMode() {
     this.canvas.drawingMode();
   }
+
+  public changeFigureColor(color){
+    this.canvas.changeFigureColor(color);
+  }
+
+  onObjectColorChange(e){
+    console.log(e)
+    this.changeFigureColor(e.target.value)
+  }
 }

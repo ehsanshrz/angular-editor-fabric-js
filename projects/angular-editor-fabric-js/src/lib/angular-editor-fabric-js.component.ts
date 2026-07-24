@@ -229,6 +229,11 @@ export class FabricjsEditorComponent implements AfterViewInit {
     }
   }
 
+  changeFigureColor(color) {
+    this.canvas.getActiveObject().set("fill", color);
+    this.canvas.renderAll();
+  };
+
   /*Canvas*/
 
   cleanSelect() {
@@ -249,10 +254,19 @@ export class FabricjsEditorComponent implements AfterViewInit {
     }
   }
 
+<<<<<<< HEAD
   extend(obj: any, id: number) {
     obj.toObject = ((toObject: () => any) => {
       return function(this: any) {
         return Object.assign(toObject.call(this), { id });
+=======
+  extend(obj, id) {
+    obj.toObject = ((toObject) => {
+      return function () {
+        return fabric.util.object.extend(toObject.call(this), {
+          id
+        });
+>>>>>>> origin/master
       };
     })(obj.toObject);
   }
@@ -483,16 +497,22 @@ export class FabricjsEditorComponent implements AfterViewInit {
 
 
   removeSelected() {
-    const activeObject = this.canvas.getActiveObject();
-    const activeGroup = this.canvas.getActiveObjects();
+    const activeObject: any = this.canvas.getActiveObject();
+    const activeGroup: any = this.canvas.getActiveObjects();
 
+<<<<<<< HEAD
     if (activeObject) {
       this.canvas.remove(activeObject);
     } else if (activeGroup) {
+=======
+    if (activeGroup) {
+>>>>>>> origin/master
       this.canvas.discardActiveObject();
       activeGroup.forEach((object: FabricObject) => {
         this.canvas.remove(object);
       });
+    } else if (activeObject) {
+      this.canvas.remove(activeObject);
     }
   }
 
@@ -534,15 +554,47 @@ export class FabricjsEditorComponent implements AfterViewInit {
 
   rasterize() {
     const image = new Image();
+<<<<<<< HEAD
     image.src = this.canvas.toDataURL({ format: 'png', multiplier: 1 });
     const w = window.open('');
     w?.document.write(image.outerHTML);
+=======
+    image.src = this.canvas.toDataURL({ format: 'png' });
+    const w = window.open('');
+    w.document.write(image.outerHTML);
+    this.downLoadImage();
+  }
+
+  downLoadImage() {
+    const c = this.canvas.toDataURL({ format: 'png' });
+    const downloadLink = document.createElement('a');
+    document.body.appendChild(downloadLink);
+    downloadLink.href = c;
+    downloadLink.target = '_self';
+    downloadLink.download = Date.now() + '.png';
+    downloadLink.click();
+>>>>>>> origin/master
   }
 
   rasterizeSVG() {
     const w = window.open('');
+<<<<<<< HEAD
     w?.document.write(this.canvas.toSVG());
+=======
+    w.document.write(this.canvas.toSVG());
+    this.downLoadSVG();
+>>>>>>> origin/master
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(this.canvas.toSVG());
+  }
+
+  downLoadSVG() {
+    const c = 'data:image/svg+xml;utf8,' + encodeURIComponent(this.canvas.toSVG());
+    const downloadLink = document.createElement('a');
+    document.body.appendChild(downloadLink);
+    downloadLink.href = c;
+    downloadLink.target = '_self';
+    downloadLink.download = Date.now() + '.svg';
+    downloadLink.click();
   }
 
   saveCanvasToJSON() {
