@@ -3,5 +3,9 @@
   "dest": "../../dist/angular-editor-fabric-js",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "fabric",
+    "ngx-color-picker"
+  ]
 }
